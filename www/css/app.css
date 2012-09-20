@@ -1,0 +1,15 @@
+.intro { color: #333; }
+.intro h1 { font-size: 2em; line-height: 1.2em; margin-bottom: 0.1em; }
+.intro h3 { font-size: 1.2em; font-family: Arial, Helvetica, sans-serif; color: #EE1300; margin: 2em 0 8px 0; }
+.intro p { line-height: 1.45em; }
+.intro p.date { color: #999; font-style: italic; }
+.intro ul { list-style: none; margin: 0; padding: 0; }
+.intro ul li { margin: 0; padding: 0; line-height: 1.2em; }
+.intro ul li a { 
+	margin: 0 0 7px 0;
+	padding: 0 0 0 7px;
+	font-size: .9em;
+	background: url(http://media.npr.org/chrome/news/bullet_blk.gif) no-repeat left .1em;
+}
+
+#earlyVoting dt span { display: none; }

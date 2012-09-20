@@ -23,6 +23,7 @@ a:hover, a:active { color: #36c; }
 #footer ul.bottomlist li.donate a { font-weight: bold; color: #F30; }
 
 @media (max-width: 480px) {
+	.navbar .arts, .navbar .music { display: none; }
 	#footer { border-top: 1px solid #CCC; margin-top: 24px; }
 }
 
