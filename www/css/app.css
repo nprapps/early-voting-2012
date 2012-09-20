@@ -12,4 +12,26 @@
 	background: url(http://media.npr.org/chrome/news/bullet_blk.gif) no-repeat left .1em;
 }
 
-#earlyVoting dt span { display: none; }
+#earlyVoting .calendar {
+	position: relative;
+	min-height: 50px;
+}
+#earlyVoting .calendar .marker {
+	color: #f1f1f1;
+	text-indent: -9999px;
+	overflow: hidden;
+	height: 1em;
+	position: absolute;
+}
+#earlyVoting .calendar .deadline {
+	background-color: red;
+	top: 0;
+}
+#earlyVoting .calendar .absentee {
+	background-color: gray;
+	top: 1.1em;
+}
+#earlyVoting .calendar .earlyInPerson {
+	background-color: blue;
+	top: 2.2em;
+}

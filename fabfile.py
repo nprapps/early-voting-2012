@@ -3,7 +3,7 @@ from fabric.api import *
 """
 Base configuration
 """
-env.project_name = 'change-this-project-name-please'
+env.project_name = 'early-voting-2012'
 
 """
 Environments
