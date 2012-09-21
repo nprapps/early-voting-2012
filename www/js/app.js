@@ -49,7 +49,6 @@ $(document).ready(function() {
 			content += '<div class="span3">';
 			content += '<h2>' + y.state + ' <span>' + y.stateabbr + '</span></h2>';
 			content += '<ul class="earlyVotingNote"><li><strong>';
-			
 			if (today.getTime() >= earlyDate.getTime() ) { // if today is after the early voting start date
 				content += 'Early voting began ';
 			} else {
@@ -111,7 +110,7 @@ $(document).ready(function() {
 			content += '</div>'; // end .span3
 			
 			content += '<div class="span3">';
-			content += '<h3>Voter Registration<b class="voterReg"></b></h3>';
+			content += '<h3><b class="voterReg"></b>Voter Registration</h3>';
 			content += '<ul>';
 			content += '<li><strong>Deadline: ';
 			if (y.registrationdeadline) {
@@ -127,7 +126,7 @@ $(document).ready(function() {
 			content += '</div>'; // end .span3
 			
 			content += '<div class="span3">';
-			content += '<h3>Absentee Ballots (Non-Military)<b class="absentee"></b></h3>';
+			content += '<h3><b class="absentee"></b>Absentee Ballots (Non-Military)</h3>';
 			content += '<ul>';
 			content += '<li><strong>First mailed:</strong> ' + formatDate(y.absmailed) + '</li>';
 			content += '<li><strong>Deadline to request:</strong> ';
@@ -154,7 +153,7 @@ $(document).ready(function() {
 			content += '</div>'; // end .span3
 			
 			content += '<div class="span3">';
-			content += '<h3>Early In-Person Voting<b class="earlyInPerson"></b></h3>';
+			content += '<h3><b class="earlyInPerson"></b>Early In-Person Voting</h3>';
 			content += '<ul>';
 			switch(y.earlyinperson.toUpperCase()) {
 				case 'Y':
@@ -188,15 +187,20 @@ $(document).ready(function() {
 			content += '</ul>';
 			content += '</div>'; // end .span3
 			
+			content += '<a class="btn btn-mini topBtn" href="#votingNav">Back To Top</a>';
 			content += '</div>'; // end .row.state1
 			content += '</div>'; // end .state
 			$('#earlyVoting').append(content);
 			
 			$('#stateJumpList').append('<li><a href="#' + y.statepostal.toLowerCase() + '">' + y.state + '</a></li>');
+			$('#stateSelectList').append('<option value="#' + y.statepostal.toLowerCase() + '">' + y.state + '</option>');
 		});
-	    $("div[rel=tooltip]").tooltip().click(function(e) { e.preventDefault() });
+//	    $("div[rel=tooltip]").tooltip().click(function(e) { e.preventDefault() });
 
 		$('#stateJumpList>li').tsort();
+		$('#stateSelectList>option').tsort();
+		$('#stateSelectList').prepend('<option selected="selected">Jump To A State...</option>');
+		$('body').on('touchstart.dropdown', '.dropdown-menu', function (e) { e.stopPropagation(); });
 	    $('#votingNav').show();
 	    switch(sortOrder) {
 	    	case 'date':

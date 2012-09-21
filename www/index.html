@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
-    <title>Early Voting 2012 - Election 2012 : NPR</title>
+    <title>Election 2012 Early Voting : NPR</title>
     <script>
         window._gaq = window._gaq || [];
     </script>
@@ -127,12 +127,15 @@
 						<button class="btn btn-small btn-inverse" id="dateSortBtn">Sort By Date</button>
 						<button class="btn btn-small btn-inverse" id="stateSortBtn">Sort By State</button>
 					</div>
-					<div class="btn-group">
+					<div class="btn-group" id="stateListBootstrap">
 						<button class="btn btn-small btn-inverse dropdown-toggle" data-toggle="dropdown" id="stateJumpBtn">
     	    				Jump To A State <span class="caret"></span>
         				</button>
         				<ul class="dropdown-menu" id="stateJumpList">
         				</ul>
+        			</div>
+        			<div id="stateListSelect">
+        				<select id="stateSelectList" onchange="window.location.href=this.options[this.selectedIndex].value;return false;"></select>
         			</div>
         		</div>
 

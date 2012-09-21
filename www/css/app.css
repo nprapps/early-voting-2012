@@ -2,6 +2,9 @@ h1 { font-size: 2em; line-height: 1.4em; margin-bottom: .6em; }
 h2 { font-size: 1.5em; line-height: 1.4em; font-weight: normal; }
 h3 { font-size: 1em; font-family: Arial, Helvetica, sans-serif; margin: 2em 0 8px 0; }
 .bigbox { min-width: 300px; }
+a.btn.btn-inverse { color: #fff; }
+#stateListSelect { display: none; }
+.topBtn { display: none; }
 
 
 /* INTRO */
@@ -111,12 +114,22 @@ h3 { font-size: 1em; font-family: Arial, Helvetica, sans-serif; margin: 2em 0 8p
 	display: inline-block;
 	width: .9em;
 	height: .9em;
-	margin-left: 6px;
+	margin-right: 6px;
 	-webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px;
 }
 #earlyVoting b.voterReg { background-color: #E38D2C; }
 #earlyVoting b.absentee { background-color: #17807E; }
 #earlyVoting b.earlyInPerson { background-color: #8BC0BF; }
+#earlyVoting .state1 .span3 a { color: #36C; }
+
+
+/* VOTING NAV */
+#votingNav #stateListSelect select {
+	background-color: #000;
+	color: #FFF;
+	font-size: 16px;
+	height: 38px;
+}
 
 
 /* RESPONSIVE ADJUSTMENTS */
@@ -132,6 +145,7 @@ h3 { font-size: 1em; font-family: Arial, Helvetica, sans-serif; margin: 2em 0 8p
 	#earlyVoting .well { margin-top: 0; }
 }
 @media (max-width: 480px) {
+	.bigbox { margin-left: -20px; margin-right: -20px; width: auto; }
 
 	#earlyVoting .calendar .marker {
 		-webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0;
@@ -141,10 +155,15 @@ h3 { font-size: 1em; font-family: Arial, Helvetica, sans-serif; margin: 2em 0 8p
 	#earlyVoting .calendar .dividerLabel b { display: none; }
 	#earlyVoting .calendar .dividerLabel i { display: block; }
 	
-	/*
-	#earlyVoting .calendar { height: 5.0em; }
-	#earlyVoting .calendar .marker { height: 1.5em; }
-	#earlyVoting .calendar .absentee { top: 1.7em; }
-	#earlyVoting .calendar .earlyInPerson {	top: 3.3em; }
-	*/
+	#votingNav .btn-group { display: block; margin: 0; }
+	#votingNav #stateListSelect { display: block; margin: 0; }
+	#votingNav #stateListSelect select { margin-top: .8em; width: 100%; }
+	#votingNav .btn.btn-small { padding: 9px 14px; font-size: 16px; line-height: normal; }
+	#votingNav #stateListBootstrap { display: none; }
+
+	#earlyVoting .state0 .span3 { position: relative; }
+	.topBtn { display: inline-block; }
+}
+
+@media (max-width: 320px) {
 }
