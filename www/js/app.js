@@ -6,6 +6,7 @@ $(document).ready(function() {
 	
 	var startDate = new Date('09/03/2012');
 	var endDate = new Date('11/06/2012');
+	var today = new Date(); today.setHours(0,0,0,0); // set today at midnight
 	var oneDay = 86400000; // one day in milliseconds
 	var timeSpan = endDate.getTime() - startDate.getTime() + oneDay;
 	var numDays = Math.round((((timeSpan / 1000) / 60) / 60) / 24);
@@ -22,13 +23,33 @@ $(document).ready(function() {
 	
 	function parseData(data) {
 		console.log(data[0]);
-		var content = '';
+		$('#earlyVoting').empty();
 		$.each(data, function(x,y) {
+		
+			// figure out when early voting starts
+			var content = '';
+			var early = y.absmailed; // default to absentee date
+			var eipDate = new Date(y.eipopen);
+			var absDate = new Date(y.absmailed);
+			if (y.eipopen && (eipDate.getTime() < absDate.getTime())) { // check if in-person exists, is earlier
+				early = y.eipopen;
+			}
+			var earlyDate = new Date(early);
+			
 			content += '<hr />';
 			content += '<div class="row state">';
 
 			content += '<div class="span3">';
 			content += '<h2>' + y.state + ' <span>' + y.stateabbr + '</span></h2>';
+			content += '<ul class="earlyVotingNote"><li><strong>';
+			
+			if (today.getTime() >= earlyDate.getTime() ) { // if today is after the early voting start date
+				content += 'Early voting began ';
+			} else {
+				content += 'Early voting begins ';
+			}
+			content += formatDate(early);
+			content += '.</strong></li></ul>';
 			content += '</div>';
 			
 			content += '<div class="span9 calendar">';
@@ -84,7 +105,7 @@ $(document).ready(function() {
 			content += '</div>'; // end .span3
 			
 			content += '<div class="span3">';
-			content += '<h3>Voter Registration</h3>';
+			content += '<h3>Voter Registration<b class="voterReg"></b></h3>';
 			content += '<ul>';
 			content += '<li><strong>Deadline: ';
 			if (y.registrationdeadline) {
@@ -100,8 +121,9 @@ $(document).ready(function() {
 			content += '</div>'; // end .span3
 			
 			content += '<div class="span3">';
-			content += '<h3>Absentee Ballots (Non-Military)</h3>';
+			content += '<h3>Absentee Ballots (Non-Military)<b class="absentee"></b></h3>';
 			content += '<ul>';
+			content += '<li><strong>First mailed:</strong> ' + formatDate(y.absmailed) + '</li>';
 			content += '<li><strong>Deadline to request:</strong> ';
 			if (y.requestdeadline) {
 				content += formatDate(y.requestdeadline);
@@ -109,7 +131,6 @@ $(document).ready(function() {
 				content += 'n/a';
 			}
 			content += '</li>';
-			content += '<li><strong>First mailed:</strong> ' + formatDate(y.absmailed) + '</li>';
 			content += '<li><strong>"No-excuse" ballots:</strong> ';
 			switch(y.noexcuseabsentee.toUpperCase()) {
 				case 'Y':
@@ -127,35 +148,43 @@ $(document).ready(function() {
 			content += '</div>'; // end .span3
 			
 			content += '<div class="span3">';
-			content += '<h3>Early In-Person Voting</h3>';
+			content += '<h3>Early In-Person Voting<b class="earlyInPerson"></b></h3>';
+			content += '<ul>';
 			switch(y.earlyinperson.toUpperCase()) {
 				case 'Y':
-					content += '<p>' + formatDate(y.eipopen) + ' through ' + formatDate(y.eipclose) + '</p>';
+					if (y.eipopen) {
+						content += '<li>' + formatDate(y.eipopen) + ' through ' + formatDate(y.eipclose) + '</li>';
+					} else {
+						content += '<li>Available. Contact local elections board for details.</li>';
+					}
 					break;
 				case 'N':
-					content += '<p>Not available</p>';
+					content += '<li>Not available</li>';
 					break;
 				default:
-					content += '<p>n/a</p>';
+					content += '<li>n/a</li>';
 					break;
 			}
+			content += '</ul>';
 			content += '<h3>Vote By Mail</h3>';
+			content += '<ul>'
 			switch(y.votebymail.toUpperCase()) {
 				case 'Y':
-					content += '<p>Available</p>';
+					content += '<li>Available</li>';
 					break;
 				case 'N':
-					content += '<p>Not available</p>';
+					content += '<li>Not available</li>';
 					break;
 				default:
-					content += '<p>n/a</p>';
+					content += '<li>n/a</li>';
 					break;
 			}
+			content += '</ul>';
 			content += '</div>'; // end .span3
 			
 			content += '</div>'; // end .row.stateInfo
+			$('#earlyVoting').append(content);
 		});
-		$('#earlyVoting').empty().append(content);
 	    $("div[rel=tooltip]").tooltip().click(function(e) { e.preventDefault() });
 	}
 	
@@ -167,8 +196,7 @@ $(document).ready(function() {
 	
 	function positionMarker(d) {
 		if (d == "today") {
-			var dObj = new Date();  // set to today
-			dObj.setHours(0,0,0,0); // set to midnight
+			var dObj = today; // set to midnight
 		} else {
 			var dObj = new Date(d);
 		}

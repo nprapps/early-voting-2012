@@ -1,28 +1,37 @@
-h1 { font-size: 2em; line-height: 1.4em; margin-bottom: 0.1em; }
+h1 { font-size: 2em; line-height: 1.4em; margin-bottom: .6em; }
 h2 { font-size: 1.4em; line-height: 1.4em; }
-h3 { font-size: 1.2em; font-family: Arial, Helvetica, sans-serif; color: #EE1300; margin: 2em 0 8px 0; }
+h3 { font-size: 1em; font-family: Arial, Helvetica, sans-serif; margin: 2em 0 8px 0; }
+.bigbox { min-width: 300px; }
 
+
+/* INTRO */
 .intro { color: #333; }
 .intro p { line-height: 1.45em; }
 .intro p.date { color: #999; font-style: italic; }
 .intro ul { list-style: none; margin: 0; padding: 0; }
-.intro ul li { margin: 0; padding: 0; line-height: 1.2em; }
+.intro ul li { margin: 0 0 .5em 0; padding: 0; line-height: 1.2em; }
 .intro ul li a { 
-	margin: 0 0 7px 0;
 	padding: 0 0 0 7px;
 	font-size: .9em;
 	background: url(http://media.npr.org/chrome/news/bullet_blk.gif) no-repeat left .1em;
 }
+.intro .credits { font-size: .85em; color: #666; margin-top: 1.5em; }
+.intro .related { margin-top: 1.5em; }
+.intro .related h3 { margin-top: 0; }
 
-#earlyVoting h2 span {
-	display: none;
-}
-#earlyVoting h3 {
-	color: #333;
-	font-size: 1em;
-}
+
+/* EARLY VOTING - GENERAL STYLES */
+#earlyVoting h2 span { display: none; }
+#earlyVoting h3 { color: #444; margin-top: 0; margin-bottom: .2em; }
+#earlyVoting ul { list-style: none; margin: 0 0 1em 0; padding: 0; }
+#earlyVoting ul li { color: #666; font-size: .9em; }
+#earlyVoting ul.earlyVotingNote li { color: #17807E; }
+
+
+/* EARLY VOTING - CALENDAR */
 #earlyVoting .calendar {
-	margin-top: 1.2em;
+	margin-top: 1.4em;
+	margin-bottom: 1.5em;
 	position: relative;
 	height: 3.4em;
 	background-color: #f1f1f1;
@@ -69,7 +78,8 @@ h3 { font-size: 1.2em; font-family: Arial, Helvetica, sans-serif; color: #EE1300
 	background-color: #ccc;
 	height: 100%;
 	position: absolute;
-	top: 0;
+	top: -2px;
+	border-top: 2px solid #666;
 	-webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0;
 }
 #earlyVoting .calendar .deadline {
@@ -86,12 +96,31 @@ h3 { font-size: 1.2em; font-family: Arial, Helvetica, sans-serif; color: #EE1300
 	top: 2.3em;
 }
 
-#earlyVoting ul { list-style: none; margin: 0; padding: 0; }
+
+/* EARLY VOTING - SUPPLEMENTAL INFO */
+#earlyVoting .stateInfo b {
+	display: inline-block;
+	width: .9em;
+	height: .9em;
+	margin-left: 6px;
+	-webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px;
+}
+#earlyVoting b.voterReg { background-color: #E38D2C; }
+#earlyVoting b.absentee { background-color: #17807E; }
+#earlyVoting b.earlyInPerson { background-color: #8BC0BF; }
 
 
-
+/* RESPONSIVE ADJUSTMENTS */
+@media (min-width: 768px) and (max-width: 979px) {
+	.intro { max-width: 404px; }
+}
+@media (max-width: 768px) {
+	.bigbox { background-color: #f1f1f1; padding-top: 1em; margin: 1.8em 0; }
+	hr:first-child { display: none; }
+}
 @media (max-width: 480px) {
-	#earlyVoting h2 { margin-bottom: 30px; }
+	#earlyVoting h2 { margin-bottom: .2em; }
+	#earlyVoting ul.earlyVotingNote { margin-bottom: 2.5em; }
 
 	#earlyVoting .calendar .marker {
 		-webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0;
