@@ -1,10 +1,13 @@
 $(document).ready(function() {
 	var days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
 	var months = [ "Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec." ];
+	var weeks = [ "Sept. 3", "Sept. 10", "Sept. 17", "Sept. 24", "Oct. 1", "Oct. 8", "Oct. 15", "Oct. 22", "Oct. 29", "Nov. 5" ];
+	var weeks_abbr = [ "9/3", "9/10", "9/17", "9/24", "10/1", "10/8", "10/15", "10/22", "10/29", "11/5" ];
 	
-	var startDate = new Date('09/01/2012');
+	var startDate = new Date('09/03/2012');
 	var endDate = new Date('11/06/2012');
-	var timeSpan = endDate.getTime() - startDate.getTime();
+	var oneDay = 86400000; // one day in milliseconds
+	var timeSpan = endDate.getTime() - startDate.getTime() + oneDay;
 	var numDays = Math.round((((timeSpan / 1000) / 60) / 60) / 24);
 	var dayWidthPct = 100/numDays + '%';
 
@@ -21,56 +24,139 @@ $(document).ready(function() {
 		console.log(data[0]);
 		var content = '';
 		$.each(data, function(x,y) {
-			content += '<div class="row">';
+			content += '<hr />';
+			content += '<div class="row state">';
+
 			content += '<div class="span3">';
-			content += '<dt><strong>' + y.state + '</strong> <span>' + y.stateabbr + '</span></dt>';
-			content += '<dd class="moreInfo">' +
-						'<strong>State Elections Board:</strong><br />' +
-						'<span>Phone: ' + y.sosphone + '<br />' + 
-						'<a href="' + y.soswebsite + '">State Elections Website</a></span></dd>';
-
-			content += '<dd class="eipTrue"><strong>Early In-Person Voting:</strong> <span>' + y.earlyinperson + '</span></dd>';
-			content += '<dd class="noExcuseTrue"><strong>"No Excuse" Absentee Ballots:</strong> <span>' + y.noexcuseabsentee + '</span></dd>';
-			content += '<dd class="vbmTrue"><strong>Vote By Mail:</strong> <span>' + y.votebymail + '</span></dd>';
-
-			content += '<dd class="absenteeDeadline"><strong>Absentee Ballot Request Deadline:</strong> <span>' + formatDate(y.requestdeadline) + '</span></dd>';
-			content += '<dd class="absenteeMailed"><strong>Absentee Ballots Mailed:</strong> <span>' + formatDate(y.absmailed) + '</span></dd>';
-			content += '<dd class="earlyInPerson"><strong>Early In-Person Voting Dates:</strong> <span>' + formatDate(y.eipopen) + ' through ' + formatDate(y.eipclose) + '</span></dd>';
-			content += '<dd class="voterRegistration"><strong>Last Day To Register To Vote:</strong> <span>' + formatDate(y.registrationdeadline) + '</span></dd>';
-			content += '<dd class="voterRegistrationInfo"><strong>More:</strong> <span>' + y.registrationnote + '</span></dd>';
-			content += '<dd class="generalElection"><strong>General Election:</strong> <span>' + formatDate(y.generalelection) + '</span></dd>';
+			content += '<h2>' + y.state + ' <span>' + y.stateabbr + '</span></h2>';
 			content += '</div>';
 			
 			content += '<div class="span9 calendar">';
 			
+			content += '<div class="marker today" style="width: ' + dayWidthPct + '; left: ' + positionMarker("today") + '%;" rel="tooltip" data-title="Today">Today</div>';
 			if (y.registrationdeadline) {
-				content += '<div class="marker deadline voterRegistration" style="width: ' + dayWidthPct + '; left: ' + positionMarker(y.registrationdeadline) + '%;">' + formatDate(y.registrationdeadline) + '</div>';
+				content += '<div class="marker deadline voterRegistration" style="width: ' + dayWidthPct + '; left: ' + positionMarker(y.registrationdeadline) + '%;" rel="tooltip" data-title="Voter registration deadline: <br />' + formatDate(y.registrationdeadline) + '">' + formatDate(y.registrationdeadline) + '</div>';
 			}
 			if (y.requestdeadline) {
-				content += '<div class="marker deadline absenteeDeadline" style="width: ' + dayWidthPct + '; left: ' + positionMarker(y.requestdeadline) + '%;">' + formatDate(y.requestdeadline) + '</div>';
+				content += '<div class="marker deadline absenteeDeadline" style="width: ' + dayWidthPct + '; left: ' + positionMarker(y.requestdeadline) + '%;" rel="tooltip" data-title="Absentee ballot request deadline: <br />' + formatDate(y.requestdeadline) + '">' + formatDate(y.requestdeadline) + '</div>';
 			}
 			if (y.generalelection) {
-				content += '<div class="marker deadline generalElection" style="width: ' + dayWidthPct + '; left: ' + positionMarker(y.generalelection) + '%;">' + formatDate(y.generalelection) + '</div>';
+				content += '<div class="marker deadline generalElection" style="width: ' + dayWidthPct + '; right: .1em;" rel="tooltip" data-title="General election: <br />' + formatDate(y.generalelection) + '">' + formatDate(y.generalelection) + '</div>';
 			}
-
 			if (y.absmailed) {
-				content += '<div class="marker absentee" style="width: ' + sizeMarker(y.absmailed, y.generalelection) + '; left: ' + positionMarker(y.absmailed) + '%;">' + formatDate(y.absmailed) + '</div>';
+				content += '<div class="marker absentee" style="width: ' + sizeMarker(y.absmailed, y.generalelection) + '; left: ' + positionMarker(y.absmailed) + '%;" rel="tooltip" data-title="Absentee voting: <br />Begins ' + formatDate(y.absmailed) + '">' + formatDate(y.absmailed) + '</div>';
 			}
-
 			if (y.eipopen) {
-				content += '<div class="marker earlyInPerson" style="width: ' + sizeMarker(y.eipopen, y.eipclose) + '; left: ' + positionMarker(y.eipopen) + '%;">' + formatDate(y.eipopen) + ' through ' + formatDate(y.eipclose) + '</div>';
+				content += '<div class="marker earlyInPerson" style="width: ' + sizeMarker(y.eipopen, y.eipclose) + '; left: ' + positionMarker(y.eipopen) + '%;" rel="tooltip" data-title="Early in-person voting: <br />' + formatDate(y.eipopen) + ' - ' + formatDate(y.eipclose) + '">' + formatDate(y.eipopen) + ' through ' + formatDate(y.eipclose) + '</div>';
 			}
+			
+			// TODO: What if voter reg is the same day as the general election?
+			// TODO: Add colored icons next to relevant category text (voter reg, early voting, absentee)
+			
+			var counter = 0;
+			var wk = 0;
+			for (var i = 0; i < (numDays + 1); i++) {
+				if (counter == 0) {
+					content += '<div class="dividerLabel" style="left: ' + positionWeek(i) + '%"><b>' + weeks[wk] + '</b><i>' + weeks_abbr[wk] + '</i></div>';
+					content += '<div class="divider week" style="left: ' + positionWeek(i) + '%"></div>';
+				} else {
+					content += '<div class="divider" style="left: ' + positionWeek(i) + '%"></div>';
+				}
+				counter ++;
+				if (counter == 7) {
+					counter = 0;
+					wk ++;
+				}
+			}
+			
+			content += '</div>'; // end .span9.calendar
+			content += '</div>'; // end .row.state
+			
 
-			// plot absentee voting window
-			content += '</div>';
+			content += '<div class="row stateInfo">';
+
+			content += '<div class="span3">';
+			content += '<h3>State Elections Board</h3>';
+			content += '<ul>';
+			content += '<li>' + y.sosphone + '</li>';
+			content += '<li><a href="' + y.soswebsite + '">Website</a></li>';
+			content += '</ul>';
+			content += '</div>'; // end .span3
 			
-			content += '</div>';
+			content += '<div class="span3">';
+			content += '<h3>Voter Registration</h3>';
+			content += '<ul>';
+			content += '<li><strong>Deadline: ';
+			if (y.registrationdeadline) {
+				content += formatDate(y.registrationdeadline);
+			} else {
+				content += 'n/a';
+			}
+			content += '</strong></li>';
+			if (y.registrationnote) {
+				content += '<li><strong>Notes:</strong> ' + y.registrationnote + '</li>';
+			}
+			content += '</ul>';
+			content += '</div>'; // end .span3
 			
-			formatDate(y.registrationdeadline);
+			content += '<div class="span3">';
+			content += '<h3>Absentee Ballots (Non-Military)</h3>';
+			content += '<ul>';
+			content += '<li><strong>Deadline to request:</strong> ';
+			if (y.requestdeadline) {
+				content += formatDate(y.requestdeadline);
+			} else {
+				content += 'n/a';
+			}
+			content += '</li>';
+			content += '<li><strong>First mailed:</strong> ' + formatDate(y.absmailed) + '</li>';
+			content += '<li><strong>"No-excuse" ballots:</strong> ';
+			switch(y.noexcuseabsentee.toUpperCase()) {
+				case 'Y':
+					content += 'Available';
+					break;
+				case 'N':
+					content += 'Not available';
+					break;
+				default:
+					content += 'n/a';
+					break;
+			}
+			content += '</li>';
+			content += '</ul>';
+			content += '</div>'; // end .span3
+			
+			content += '<div class="span3">';
+			content += '<h3>Early In-Person Voting</h3>';
+			switch(y.earlyinperson.toUpperCase()) {
+				case 'Y':
+					content += '<p>' + formatDate(y.eipopen) + ' through ' + formatDate(y.eipclose) + '</p>';
+					break;
+				case 'N':
+					content += '<p>Not available</p>';
+					break;
+				default:
+					content += '<p>n/a</p>';
+					break;
+			}
+			content += '<h3>Vote By Mail</h3>';
+			switch(y.votebymail.toUpperCase()) {
+				case 'Y':
+					content += '<p>Available</p>';
+					break;
+				case 'N':
+					content += '<p>Not available</p>';
+					break;
+				default:
+					content += '<p>n/a</p>';
+					break;
+			}
+			content += '</div>'; // end .span3
+			
+			content += '</div>'; // end .row.stateInfo
 		});
-		content += '</div>';
 		$('#earlyVoting').empty().append(content);
-		
+	    $("div[rel=tooltip]").tooltip().click(function(e) { e.preventDefault() });
 	}
 	
 	function formatDate(d) {
@@ -80,17 +166,27 @@ $(document).ready(function() {
 	}
 	
 	function positionMarker(d) {
-		var dObj = new Date(d);
+		if (d == "today") {
+			var dObj = new Date();  // set to today
+			dObj.setHours(0,0,0,0); // set to midnight
+		} else {
+			var dObj = new Date(d);
+		}
 		var dOffset = ((dObj.getTime() - startDate.getTime()) / timeSpan) * 100;
 		return dOffset;
+	}
+	
+	function positionWeek(w) {
+		var thisDay = w * oneDay;
+		var wOffset = (thisDay / timeSpan) * 100;
+		return wOffset;
 	}
 	
 	function sizeMarker(d,e) {
 		var dObj = new Date(d);
 		var eObj = new Date(e);
-		// 86400000 == one day in milliseconds
 		var dStartOffset = ((dObj.getTime() - startDate.getTime()) / timeSpan) * 100;
-		var dSpan = ((eObj.getTime() - dObj.getTime() + 86400000) / timeSpan) * 100;
+		var dSpan = ((eObj.getTime() - dObj.getTime() + oneDay) / timeSpan) * 100;
 		return dSpan + '%';
 	}
 	

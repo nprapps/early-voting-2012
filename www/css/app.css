@@ -1,6 +1,8 @@
+h1 { font-size: 2em; line-height: 1.4em; margin-bottom: 0.1em; }
+h2 { font-size: 1.4em; line-height: 1.4em; }
+h3 { font-size: 1.2em; font-family: Arial, Helvetica, sans-serif; color: #EE1300; margin: 2em 0 8px 0; }
+
 .intro { color: #333; }
-.intro h1 { font-size: 2em; line-height: 1.2em; margin-bottom: 0.1em; }
-.intro h3 { font-size: 1.2em; font-family: Arial, Helvetica, sans-serif; color: #EE1300; margin: 2em 0 8px 0; }
 .intro p { line-height: 1.45em; }
 .intro p.date { color: #999; font-style: italic; }
 .intro ul { list-style: none; margin: 0; padding: 0; }
@@ -12,26 +14,95 @@
 	background: url(http://media.npr.org/chrome/news/bullet_blk.gif) no-repeat left .1em;
 }
 
+#earlyVoting h2 span {
+	display: none;
+}
+#earlyVoting h3 {
+	color: #333;
+	font-size: 1em;
+}
 #earlyVoting .calendar {
+	margin-top: 1.2em;
 	position: relative;
-	min-height: 50px;
+	height: 3.4em;
+	background-color: #f1f1f1;
+	z-index: 99;
+}
+#earlyVoting .calendar .dividerLabel {
+	position: absolute;
+	top: -2em;
+	font-size: .7em;
+	color: #999;
+	white-space: nowrap;
+}
+#earlyVoting .calendar .dividerLabel b {
+	font-style: normal;
+}
+#earlyVoting .calendar .dividerLabel i {
+	display: none;
+	font-style: normal;
+}
+#earlyVoting .calendar .divider {
+	z-index: 100;
+	width: 1px;
+	height: 100%;
+	background-color: #fff;
+	position: absolute;
+	top: 0;
+}
+#earlyVoting .calendar .divider.week {
+	width: 1px;
+	background-color: #999;
+	z-index: 102;
 }
 #earlyVoting .calendar .marker {
-	color: #f1f1f1;
+	z-index: 101;
+	background-color: #f1f1f1;
 	text-indent: -9999px;
 	overflow: hidden;
 	height: 1em;
 	position: absolute;
+	-webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px;
+	cursor: pointer;
+}
+#earlyVoting .calendar .marker.today {
+	background-color: #ccc;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	-webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0;
 }
 #earlyVoting .calendar .deadline {
-	background-color: red;
-	top: 0;
+	background-color: #E38D2C;
+	top: .1em;
+	-webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0;
 }
 #earlyVoting .calendar .absentee {
-	background-color: gray;
-	top: 1.1em;
+	background-color: #17807E;
+	top: 1.2em;
 }
 #earlyVoting .calendar .earlyInPerson {
-	background-color: blue;
-	top: 2.2em;
+	background-color: #8BC0BF;
+	top: 2.3em;
+}
+
+#earlyVoting ul { list-style: none; margin: 0; padding: 0; }
+
+
+
+@media (max-width: 480px) {
+	#earlyVoting h2 { margin-bottom: 30px; }
+
+	#earlyVoting .calendar .marker {
+		-webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0;
+	}
+	#earlyVoting .calendar .divider { display: none; }
+	#earlyVoting .calendar .divider.week { display: block; background-color: #fff; }
+	#earlyVoting .calendar .dividerLabel b { display: none; }
+	#earlyVoting .calendar .dividerLabel i { display: block; }
+
+	#earlyVoting .calendar { height: 5.0em; }
+	#earlyVoting .calendar .marker { height: 1.5em; }
+	#earlyVoting .calendar .absentee { top: 1.7em; }
+	#earlyVoting .calendar .earlyInPerson {	top: 3.3em; }
 }
