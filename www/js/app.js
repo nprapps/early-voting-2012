@@ -19,8 +19,8 @@ $(document).ready(function() {
 	
 	var sortOrder = 'date';
 
+	$('#votingNav').hide();
 	function init() {
-		$('#votingNav').hide();
 		Tabletop.init( 
 			{ key: '0Ala-N4Y4VPXIdEVnYVVNUEtqbF82M210ZmlJQWo2S2c',
 			  callback: parseData,
@@ -43,7 +43,8 @@ $(document).ready(function() {
 			}
 			var earlyDate = new Date(early);
 			
-			content += '<div class="row state" id="' + y.statepostal.toLowerCase() + '">';
+			content += '<div class="state" id="' + y.statepostal.toLowerCase() + '" data-title="' + y.state + '" data-date="' + earlyDate.getTime() + '">';
+			content += '<div class="row state0">';
 
 			content += '<div class="span3">';
 			content += '<h2>' + y.state + ' <span>' + y.stateabbr + '</span></h2>';
@@ -96,10 +97,10 @@ $(document).ready(function() {
 			
 			content += '</div>'; // end .span9
 			content += '</div>'; // end .calendar
-			content += '</div>'; // end .row.state
+			content += '</div>'; // end .row.state0
 			
 
-			content += '<div class="row stateInfo">';
+			content += '<div class="row state1">';
 
 			content += '<div class="span3">';
 			content += '<h3>State Elections Board</h3>';
@@ -187,13 +188,15 @@ $(document).ready(function() {
 			content += '</ul>';
 			content += '</div>'; // end .span3
 			
-			content += '</div>'; // end .row.stateInfo
+			content += '</div>'; // end .row.state1
+			content += '</div>'; // end .state
 			$('#earlyVoting').append(content);
 			
 			$('#stateJumpList').append('<li><a href="#' + y.statepostal.toLowerCase() + '">' + y.state + '</a></li>');
 		});
 	    $("div[rel=tooltip]").tooltip().click(function(e) { e.preventDefault() });
-	    
+
+		$('#stateJumpList>li').tsort();
 	    $('#votingNav').show();
 	    switch(sortOrder) {
 	    	case 'date':
@@ -206,6 +209,20 @@ $(document).ready(function() {
 	    		break;
 	    }
 	}
+	
+	$('#dateSortBtn').click(function() {
+		$('div.state').tsort({attr:'data-date'});
+		$('#dateSortBtn').addClass('disabled');
+		$('#stateSortBtn').removeClass('disabled');
+		sortOrder = 'date';
+	});
+	
+	$('#stateSortBtn').click(function() {
+		$('div.state').tsort({attr:'data-title'});
+		$('#stateSortBtn').addClass('disabled');
+		$('#dateSortBtn').removeClass('disabled');
+		sortOrder = 'alpha';
+	});
 	
 	function formatDate(d) {
 		var dObj = new Date(d);

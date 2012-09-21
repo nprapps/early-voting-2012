@@ -1,5 +1,5 @@
 h1 { font-size: 2em; line-height: 1.4em; margin-bottom: .6em; }
-h2 { font-size: 1.4em; line-height: 1.4em; font-weight: normal; }
+h2 { font-size: 1.5em; line-height: 1.4em; font-weight: normal; }
 h3 { font-size: 1em; font-family: Arial, Helvetica, sans-serif; margin: 2em 0 8px 0; }
 .bigbox { min-width: 300px; }
 
@@ -26,14 +26,15 @@ h3 { font-size: 1em; font-family: Arial, Helvetica, sans-serif; margin: 2em 0 8p
 #earlyVoting ul { list-style: none; margin: 0 0 1em 0; padding: 0; }
 #earlyVoting ul li { color: #666; font-size: .9em; }
 #earlyVoting ul.earlyVotingNote li { color: #17807E; }
+#earlyVoting .well { margin-top: 2em; }
 
-#earlyVoting .state:first-child { margin-top: 2em; }
-#earlyVoting .state .span3 {
+#earlyVoting .state0:first-child { margin-top: 2em; }
+#earlyVoting .state0 .span3 {
 	border-top: 3px solid #000;
 	padding-top: 17px;
 }
-#earlyVoting .state .calWrap { border-top: 1px solid #ccc; padding-top: 18px; }
-#earlyVoting .stateInfo { margin-bottom: 1.4em; }
+#earlyVoting .state0 .calWrap { border-top: 1px solid #ccc; padding-top: 18px; }
+#earlyVoting .state1 { margin-bottom: 1.4em; }
 
 
 /* EARLY VOTING - CALENDAR */
@@ -106,7 +107,7 @@ h3 { font-size: 1em; font-family: Arial, Helvetica, sans-serif; margin: 2em 0 8p
 
 
 /* EARLY VOTING - SUPPLEMENTAL INFO */
-#earlyVoting .stateInfo b {
+#earlyVoting .state1 b {
 	display: inline-block;
 	width: .9em;
 	height: .9em;
@@ -124,10 +125,11 @@ h3 { font-size: 1em; font-family: Arial, Helvetica, sans-serif; margin: 2em 0 8p
 }
 @media (max-width: 767px) {
 	.bigbox { background-color: #f1f1f1; padding-top: 1em; margin: 1.8em 0; }
-	#earlyVoting .state:first-child { margin-top: 0; }
-	#earlyVoting .state .calWrap { border-top: none; padding-top: 0; }
+	#earlyVoting .state0:first-child { margin-top: 0; }
+	#earlyVoting .state0 .calWrap { border-top: none; padding-top: 0; }
 	#earlyVoting h2 { margin-bottom: .2em; }
 	#earlyVoting ul.earlyVotingNote { margin-bottom: 2.5em; }
+	#earlyVoting .well { margin-top: 0; }
 }
 @media (max-width: 480px) {
 
