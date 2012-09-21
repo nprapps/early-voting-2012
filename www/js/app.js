@@ -194,7 +194,7 @@ $(document).ready(function() {
 			$('#stateJumpList').append('<li><a href="#' + y.statepostal.toLowerCase() + '">' + y.state + '</a></li>');
 			$('#stateSelectList').append('<option value="#' + y.statepostal.toLowerCase() + '">' + y.state + '</option>');
 		});
-//	    $("div[rel=tooltip]").tooltip().click(function(e) { e.preventDefault() });
+	    $("div[rel=tooltip]").tooltip().click(function(e) { e.preventDefault() });
 
 		$('#stateJumpList>li').tsort();
 		$('#stateSelectList>option').tsort();
