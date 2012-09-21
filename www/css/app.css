@@ -124,6 +124,7 @@ a.btn.btn-inverse { color: #fff; }
 
 
 /* VOTING NAV */
+#votingNav { border-top: 5px solid #eee; padding-top: 18px; }
 #votingNav #stateListSelect select {
 	background-color: #000;
 	color: #FFF;
@@ -138,6 +139,7 @@ a.btn.btn-inverse { color: #fff; }
 }
 @media (max-width: 767px) {
 	.bigbox { background-color: #f1f1f1; padding-top: 1em; margin: 1.8em 0; }
+	#votingNav { padding-top: 0; border-top: none; }
 	#earlyVoting .state0:first-child { margin-top: 0; }
 	#earlyVoting .state0 .calWrap { border-top: none; padding-top: 0; }
 	#earlyVoting h2 { margin-bottom: .2em; }
