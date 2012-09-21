@@ -1,5 +1,5 @@
 h1 { font-size: 2em; line-height: 1.4em; margin-bottom: .6em; }
-h2 { font-size: 1.4em; line-height: 1.4em; }
+h2 { font-size: 1.4em; line-height: 1.4em; font-weight: normal; }
 h3 { font-size: 1em; font-family: Arial, Helvetica, sans-serif; margin: 2em 0 8px 0; }
 .bigbox { min-width: 300px; }
 
@@ -26,6 +26,14 @@ h3 { font-size: 1em; font-family: Arial, Helvetica, sans-serif; margin: 2em 0 8p
 #earlyVoting ul { list-style: none; margin: 0 0 1em 0; padding: 0; }
 #earlyVoting ul li { color: #666; font-size: .9em; }
 #earlyVoting ul.earlyVotingNote li { color: #17807E; }
+
+#earlyVoting .state:first-child { margin-top: 2em; }
+#earlyVoting .state .span3 {
+	border-top: 3px solid #000;
+	padding-top: 17px;
+}
+#earlyVoting .state .calWrap { border-top: 1px solid #ccc; padding-top: 18px; }
+#earlyVoting .stateInfo { margin-bottom: 1.4em; }
 
 
 /* EARLY VOTING - CALENDAR */
@@ -114,13 +122,14 @@ h3 { font-size: 1em; font-family: Arial, Helvetica, sans-serif; margin: 2em 0 8p
 @media (min-width: 768px) and (max-width: 979px) {
 	.intro { max-width: 404px; }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	.bigbox { background-color: #f1f1f1; padding-top: 1em; margin: 1.8em 0; }
-	hr:first-child { display: none; }
-}
-@media (max-width: 480px) {
+	#earlyVoting .state:first-child { margin-top: 0; }
+	#earlyVoting .state .calWrap { border-top: none; padding-top: 0; }
 	#earlyVoting h2 { margin-bottom: .2em; }
 	#earlyVoting ul.earlyVotingNote { margin-bottom: 2.5em; }
+}
+@media (max-width: 480px) {
 
 	#earlyVoting .calendar .marker {
 		-webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0;
@@ -129,9 +138,11 @@ h3 { font-size: 1em; font-family: Arial, Helvetica, sans-serif; margin: 2em 0 8p
 	#earlyVoting .calendar .divider.week { display: block; background-color: #fff; }
 	#earlyVoting .calendar .dividerLabel b { display: none; }
 	#earlyVoting .calendar .dividerLabel i { display: block; }
-
+	
+	/*
 	#earlyVoting .calendar { height: 5.0em; }
 	#earlyVoting .calendar .marker { height: 1.5em; }
 	#earlyVoting .calendar .absentee { top: 1.7em; }
 	#earlyVoting .calendar .earlyInPerson {	top: 3.3em; }
+	*/
 }

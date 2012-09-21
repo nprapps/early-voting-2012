@@ -1,3 +1,8 @@
+// TODO:
+// What if voter reg is the same day as the general election?
+// Sort buttons
+// Sort state order in dropdown
+
 $(document).ready(function() {
 	var days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
 	var months = [ "Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec." ];
@@ -11,8 +16,11 @@ $(document).ready(function() {
 	var timeSpan = endDate.getTime() - startDate.getTime() + oneDay;
 	var numDays = Math.round((((timeSpan / 1000) / 60) / 60) / 24);
 	var dayWidthPct = 100/numDays + '%';
+	
+	var sortOrder = 'date';
 
 	function init() {
+		$('#votingNav').hide();
 		Tabletop.init( 
 			{ key: '0Ala-N4Y4VPXIdEVnYVVNUEtqbF82M210ZmlJQWo2S2c',
 			  callback: parseData,
@@ -22,7 +30,6 @@ $(document).ready(function() {
 	init();
 	
 	function parseData(data) {
-		console.log(data[0]);
 		$('#earlyVoting').empty();
 		$.each(data, function(x,y) {
 		
@@ -36,8 +43,7 @@ $(document).ready(function() {
 			}
 			var earlyDate = new Date(early);
 			
-			content += '<hr />';
-			content += '<div class="row state">';
+			content += '<div class="row state" id="' + y.statepostal.toLowerCase() + '">';
 
 			content += '<div class="span3">';
 			content += '<h2>' + y.state + ' <span>' + y.stateabbr + '</span></h2>';
@@ -52,7 +58,8 @@ $(document).ready(function() {
 			content += '.</strong></li></ul>';
 			content += '</div>';
 			
-			content += '<div class="span9 calendar">';
+			content += '<div class="span9 calWrap">';
+			content += '<div class="calendar">';
 			
 			content += '<div class="marker today" style="width: ' + dayWidthPct + '; left: ' + positionMarker("today") + '%;" rel="tooltip" data-title="Today">Today</div>';
 			if (y.registrationdeadline) {
@@ -71,9 +78,6 @@ $(document).ready(function() {
 				content += '<div class="marker earlyInPerson" style="width: ' + sizeMarker(y.eipopen, y.eipclose) + '; left: ' + positionMarker(y.eipopen) + '%;" rel="tooltip" data-title="Early in-person voting: <br />' + formatDate(y.eipopen) + ' - ' + formatDate(y.eipclose) + '">' + formatDate(y.eipopen) + ' through ' + formatDate(y.eipclose) + '</div>';
 			}
 			
-			// TODO: What if voter reg is the same day as the general election?
-			// TODO: Add colored icons next to relevant category text (voter reg, early voting, absentee)
-			
 			var counter = 0;
 			var wk = 0;
 			for (var i = 0; i < (numDays + 1); i++) {
@@ -90,7 +94,8 @@ $(document).ready(function() {
 				}
 			}
 			
-			content += '</div>'; // end .span9.calendar
+			content += '</div>'; // end .span9
+			content += '</div>'; // end .calendar
 			content += '</div>'; // end .row.state
 			
 
@@ -184,8 +189,22 @@ $(document).ready(function() {
 			
 			content += '</div>'; // end .row.stateInfo
 			$('#earlyVoting').append(content);
+			
+			$('#stateJumpList').append('<li><a href="#' + y.statepostal.toLowerCase() + '">' + y.state + '</a></li>');
 		});
 	    $("div[rel=tooltip]").tooltip().click(function(e) { e.preventDefault() });
+	    
+	    $('#votingNav').show();
+	    switch(sortOrder) {
+	    	case 'date':
+	    		$('#dateSortBtn').addClass('disabled');
+	    		$('#stateSortBtn').removeClass('disabled');
+	    		break;
+	    	case 'alpha':
+	    		$('#stateSortBtn').addClass('disabled');
+	    		$('#dateSortBtn').removeClass('disabled');
+	    		break;
+	    }
 	}
 	
 	function formatDate(d) {

@@ -120,8 +120,27 @@
         
         <div class="row">
         	<div class="span12">
+        	
+        		<div id="votingNav" class="btn-toolbar">
+	        		<div class="btn-group">
+						<button class="btn btn-small btn-inverse" id="dateSortBtn">Sort By Date</button>
+						<button class="btn btn-small btn-inverse" id="stateSortBtn">Sort By State</button>
+					</div>
+					<div class="btn-group">
+						<button class="btn btn-small btn-inverse dropdown-toggle" data-toggle="dropdown" id="stateJumpBtn">
+    	    				Jump To A State <span class="caret"></span>
+        				</button>
+        				<ul class="dropdown-menu" id="stateJumpList">
+        				</ul>
+        			</div>
+        		</div>
 
-				<div id="earlyVoting"></div>
+
+				<div id="earlyVoting">
+					<div class="well well-large">
+						<h2>Loading early voting information for each state.</h2>
+					</div>
+				</div>
 
         	</div>
         </div>
