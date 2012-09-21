@@ -22,12 +22,22 @@ a:hover, a:active { color: #36c; }
 #footer ul.bottomlist li.help a, #footer ul.bottomlist li.contact a { color: #000; font-weight: bold; }
 #footer ul.bottomlist li.donate a { font-weight: bold; color: #F30; }
 
-@media (max-width: 480px) {
-	.navbar .arts, .navbar .music { display: none; }
-	#footer { border-top: 1px solid #CCC; margin-top: 24px; }
-}
-
 @media (max-width: 979px) {
     .container.the-goods { margin-top:0; }
     .navbar-fixed-top .navbar-inner { padding-left: 20px; padding-right: 20px; }
+}
+@media (min-width: 768px) and (max-width: 979px) {
+	.navbar-fixed-top .container { width: 724px; }
+}
+@media (max-width: 767px) {
+	.navbar-fixed-top .container { width: 724px; position: static; }
+	.navbar-fixed-top .navbar-inner { padding-left: 20px; padding-right: 20px; }
+}
+@media (max-width: 480px) {
+	.navbar-fixed-top { margin: 0 -20px 20px -20px; }
+	.navbar-fixed-top .navbar-inner { padding: 0 20px; }
+	.navbar-fixed-top .container { width: auto; }
+
+	.navbar .arts, .navbar .music { display: none; }
+	#footer { border-top: 1px solid #CCC; margin-top: 24px; }
 }

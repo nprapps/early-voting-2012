@@ -1,7 +1,6 @@
 // TODO:
 // What if voter reg is the same day as the general election?
-// Sort buttons
-// Sort state order in dropdown
+// Waiting for greg to fill in remaining voter reg deadlines
 
 $(document).ready(function() {
 	var days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];

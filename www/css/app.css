@@ -166,6 +166,3 @@ a.btn.btn-inverse { color: #fff; }
 	#earlyVoting .state0 .span3 { position: relative; }
 	.topBtn { display: inline-block; }
 }
-
-@media (max-width: 320px) {
-}
