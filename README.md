@@ -1,28 +1,6 @@
-app-template
+Early Voting 2012
 ============
 
-This is a rough start at something.
+Responsive page that plots out where/when early voting is happening, by state. Users can sort by the early voting start date or by state name.
 
-First, set up an empty git repo for your project.
-
-Now, copy the code in...
-```
-git clone git@github.com:npr/app-template.git NAME_OF_NEW_PROJECT_REPO
-cd NAME_OF_NEW_PROJECT_REPO
-git remote rm origin
-git remote add origin URL_TO_A NEW_GITHUB_REPO
-git push -u origin master
-```
-
-Set up a virtualenv, install the requirements, and go nuts.
-```
-mkvirtualenv your-project-name
-pip install -r requirements.txt
-```
-
-Set the project_name in the fabfile.
-
-To deploy, you'll need s3cmd installed and configured w/ the Amazon keys.
-```
-fab stage master deploy
-```
+Data is fed via a Google Spreadsheet (contact Alyson Hurt for access) and loaded onto the page with Tabletop JS.
