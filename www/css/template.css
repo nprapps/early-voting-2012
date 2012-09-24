@@ -8,7 +8,7 @@ a:hover, a:active { color: #36c; }
 .navbar .nav > li.npr > a { display: block; width: 55px; padding-left: 0; }
 .navbar .nav > li.donate > a { font-weight: bold; color: #ccc; }
 
-.container.the-goods { margin-top:60px; }
+.container.the-goods { padding-top:60px; }
 
 .sponsor300 { overflow: hidden; width: 300px; margin: 0 auto; }
 .adwrapper { zoom: 1; padding: 0 0 12px 0; }
@@ -23,7 +23,7 @@ a:hover, a:active { color: #36c; }
 #footer ul.bottomlist li.donate a { font-weight: bold; color: #F30; }
 
 @media (max-width: 979px) {
-    .container.the-goods { margin-top:0; }
+    .container.the-goods { padding-top:0; }
     .navbar-fixed-top .navbar-inner { padding-left: 20px; padding-right: 20px; }
 }
 @media (min-width: 768px) and (max-width: 979px) {

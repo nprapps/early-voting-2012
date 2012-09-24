@@ -61,14 +61,18 @@ $(document).ready(function() {
 			content += '<div class="calendar">';
 			
 			content += '<div class="marker today" style="width: ' + dayWidthPct + '; left: ' + positionMarker("today") + '%;" rel="tooltip" data-title="Today">Today</div>';
-			if (y.registrationdeadline) {
-				content += '<div class="marker deadline voterRegistration" style="width: ' + dayWidthPct + '; left: ' + positionMarker(y.registrationdeadline) + '%;" rel="tooltip" data-title="Voter registration deadline: <br />' + formatDate(y.registrationdeadline) + '">' + formatDate(y.registrationdeadline) + '</div>';
+			if (y.registrationdeadline && y.registrationdeadline == y.generalelection) {
+				content += '<div class="marker deadline voterRegistration" style="width: ' + dayWidthPct + '; left: ' + positionMarker(y.registrationdeadline) + '%;" rel="tooltip" data-title="Voter reg. deadline, election: <br />' + formatDate(y.registrationdeadline) + '">' + formatDate(y.registrationdeadline) + '</div>';
+			} else {
+				if (y.registrationdeadline) {
+					content += '<div class="marker deadline voterRegistration" style="width: ' + dayWidthPct + '; left: ' + positionMarker(y.registrationdeadline) + '%;" rel="tooltip" data-title="Voter reg. deadline: <br />' + formatDate(y.registrationdeadline) + '">' + formatDate(y.registrationdeadline) + '</div>';
+				}
+				if (y.generalelection) {
+					content += '<div class="marker deadline generalElection" style="width: ' + dayWidthPct + '; right: .1em;" rel="tooltip" data-title="Election: <br />' + formatDate(y.generalelection) + '">' + formatDate(y.generalelection) + '</div>';
+				}
 			}
 			if (y.requestdeadline) {
-				content += '<div class="marker deadline absenteeDeadline" style="width: ' + dayWidthPct + '; left: ' + positionMarker(y.requestdeadline) + '%;" rel="tooltip" data-title="Absentee ballot request deadline: <br />' + formatDate(y.requestdeadline) + '">' + formatDate(y.requestdeadline) + '</div>';
-			}
-			if (y.generalelection) {
-				content += '<div class="marker deadline generalElection" style="width: ' + dayWidthPct + '; right: .1em;" rel="tooltip" data-title="General election: <br />' + formatDate(y.generalelection) + '">' + formatDate(y.generalelection) + '</div>';
+				content += '<div class="marker deadline absenteeDeadline" style="width: ' + dayWidthPct + '; left: ' + positionMarker(y.requestdeadline) + '%;" rel="tooltip" data-title="Absentee request deadline: <br />' + formatDate(y.requestdeadline) + '">' + formatDate(y.requestdeadline) + '</div>';
 			}
 			if (y.absmailed) {
 				content += '<div class="marker absentee" style="width: ' + sizeMarker(y.absmailed, y.generalelection) + '; left: ' + positionMarker(y.absmailed) + '%;" rel="tooltip" data-title="Absentee voting: <br />Begins ' + formatDate(y.absmailed) + '">' + formatDate(y.absmailed) + '</div>';
