@@ -18,12 +18,15 @@ a.btn.btn-inverse { color: #fff; }
 	font-size: .9em;
 	background: url(http://media.npr.org/chrome/news/bullet_blk.gif) no-repeat left .1em;
 }
-.intro .credits { font-size: .85em; color: #666; margin-top: 1.5em; }
+.credits { font-size: .85em; color: #666; margin-top: 1.5em; }
+.credits p { margin: 0 0 .1em 0; }
 .intro .related { margin-top: 1.5em; }
 .intro .related h3 { margin-top: 0; }
+.intro .credits h4 { font: bold 1em Arial, Helvetica, sans-serif; color: #333; margin: 0 0 .3em 0; text-transform: uppercase; }
 
 
 /* EARLY VOTING - GENERAL STYLES */
+#earlyVoting .state { padding-top: 30px; }
 #earlyVoting h2 span { display: none; }
 #earlyVoting h3 { color: #444; margin-top: 0; margin-bottom: .2em; }
 #earlyVoting ul { list-style: none; margin: 0 0 1em 0; padding: 0; }
@@ -31,13 +34,20 @@ a.btn.btn-inverse { color: #fff; }
 #earlyVoting ul.earlyVotingNote li { color: #17807E; }
 #earlyVoting .well { margin-top: 2em; }
 
-#earlyVoting .state0:first-child { margin-top: 2em; }
 #earlyVoting .state0 .span3 {
 	border-top: 3px solid #000;
 	padding-top: 17px;
 }
 #earlyVoting .state0 .calWrap { border-top: 1px solid #ccc; padding-top: 18px; }
-#earlyVoting .state1 { margin-bottom: 1.4em; }
+#earlyVoting .state1 { margin-bottom: 0; }
+
+#earlyVoting .voterInfo li.tel span { display: none; }
+#earlyVoting .voterInfo li.tel a { color: #666; }
+#earlyVoting .voterInfo li.tel a:hover { text-decoration: none; cursor: arrow; }
+
+#earlyVoting .voterInfo ul { display: block; }
+#earlyVoting .voterInfo .btn-toolbar { display: none; }
+
 
 
 /* EARLY VOTING - CALENDAR */
@@ -100,11 +110,15 @@ a.btn.btn-inverse { color: #fff; }
 	-webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0;
 }
 #earlyVoting .calendar .absentee {
-	background-color: #17807E;
+	background-color: #11605E;
 	top: 1.2em;
 }
 #earlyVoting .calendar .earlyInPerson {
-	background-color: #8BC0BF;
+	background-color: #51A09E;
+	top: 2.3em;
+}
+#earlyVoting .calendar .vbm {
+	background-color: #C5DFDF;
 	top: 2.3em;
 }
 
@@ -118,8 +132,9 @@ a.btn.btn-inverse { color: #fff; }
 	-webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px;
 }
 #earlyVoting b.voterReg { background-color: #E38D2C; }
-#earlyVoting b.absentee { background-color: #17807E; }
-#earlyVoting b.earlyInPerson { background-color: #8BC0BF; }
+#earlyVoting b.absentee { background-color: #11605E; }
+#earlyVoting b.earlyInPerson { background-color: #51A09E; }
+#earlyVoting b.vbm { background-color: #C5DFDF; }
 #earlyVoting .state1 .span3 a { color: #36C; }
 
 
@@ -158,6 +173,7 @@ a.btn.btn-inverse { color: #fff; }
 	#earlyVoting .calendar .dividerLabel i { display: block; }
 	
 	#votingNav .btn-group { display: block; margin: 0; }
+	#votingNav #dateSortBtn, #votingNav #stateSortBtn { width: 50%; }
 	#votingNav #stateListSelect { display: block; margin: 0; }
 	#votingNav #stateListSelect select { margin-top: .8em; width: 100%; }
 	#votingNav .btn.btn-small { padding: 9px 14px; font-size: 16px; line-height: normal; }
@@ -165,4 +181,11 @@ a.btn.btn-inverse { color: #fff; }
 
 	#earlyVoting .state0 .span3 { position: relative; }
 	.topBtn { display: inline-block; }
+
+	#earlyVoting .voterInfo ul { display: none; }
+	#earlyVoting .voterInfo .btn-toolbar { display: block; }
+
+	#earlyVoting .voterInfo { margin-bottom: 1.6em; }
+	#earlyVoting .voterInfo h3 { margin-bottom: .5em; }
+	#earlyVoting .state1 .span3 a { color: #000; }
 }

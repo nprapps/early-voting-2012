@@ -73,6 +73,9 @@ $(document).ready(function() {
 			if (y.absmailed) {
 				content += '<div class="marker absentee" style="width: ' + sizeMarker(y.absmailed, y.generalelection) + '; left: ' + positionMarker(y.absmailed) + '%;" rel="tooltip" data-title="Absentee voting: <br />Begins ' + formatDate(y.absmailed) + '">' + formatDate(y.absmailed) + '</div>';
 			}
+			if (y.vbmmailed) {
+				content += '<div class="marker vbm" style="width: ' + sizeMarker(y.vbmmailed, y.generalelection) + '; left: ' + positionMarker(y.vbmmailed) + '%;" rel="tooltip" data-title="Vote by mail: <br />Begins ' + formatDate(y.vbmmailed) + '">' + formatDate(y.vbmmailed) + '</div>';
+			}
 			if (y.eipopen) {
 				content += '<div class="marker earlyInPerson" style="width: ' + sizeMarker(y.eipopen, y.eipclose) + '; left: ' + positionMarker(y.eipopen) + '%;" rel="tooltip" data-title="Early in-person voting: <br />' + formatDate(y.eipopen) + ' - ' + formatDate(y.eipclose) + '">' + formatDate(y.eipopen) + ' through ' + formatDate(y.eipclose) + '</div>';
 			}
@@ -100,12 +103,16 @@ $(document).ready(function() {
 
 			content += '<div class="row state1">';
 
-			content += '<div class="span3">';
-			content += '<h3>State Elections Board</h3>';
+			content += '<div class="span3 voterInfo">';
+			content += '<h3>' + y.state + ' Voting Information</h3>';
 			content += '<ul>';
-			content += '<li>' + y.sosphone + '</li>';
-			content += '<li><a href="' + y.soswebsite + '">Website</a></li>';
+			content += '<li class="tel">' + y.sosphone + '</li>';
+			content += '<li class="web"><a href="' + y.soswebsite + '">Website</a></li>';
 			content += '</ul>';
+			content += '<div class="btn-toolbar">';
+			content += '<a class="tel btn btn-large" href="tel:' + y.sosphone + '"><span>Call: </span>' + y.sosphone + '</a>';
+			content += '<a class="web btn btn-large" href="' + y.soswebsite + '">Website</a>';
+			content += '</div>';
 			content += '</div>'; // end .span3
 			
 			content += '<div class="span3">';
@@ -125,7 +132,7 @@ $(document).ready(function() {
 			content += '</div>'; // end .span3
 			
 			content += '<div class="span3">';
-			content += '<h3><b class="absentee"></b>Absentee Ballots (Non-Military)</h3>';
+			content += '<h3><b class="absentee"></b>Absentee Ballots</h3>';
 			content += '<ul>';
 			content += '<li><strong>First mailed:</strong> ' + formatDate(y.absmailed) + '</li>';
 			content += '<li><strong>Deadline to request:</strong> ';
@@ -170,11 +177,15 @@ $(document).ready(function() {
 					break;
 			}
 			content += '</ul>';
-			content += '<h3>Vote By Mail</h3>';
+			content += '<h3><b class="vbm"></b>Vote By Mail</h3>';
 			content += '<ul>'
 			switch(y.votebymail.toUpperCase()) {
 				case 'Y':
-					content += '<li>Available</li>';
+					if (y.vbmnote) {
+						content += '<li>' + y.vbmnote + '</li>';
+					} else {
+						content += '<li>Available.</li>';
+					}
 					break;
 				case 'N':
 					content += '<li>Not available</li>';
@@ -186,7 +197,7 @@ $(document).ready(function() {
 			content += '</ul>';
 			content += '</div>'; // end .span3
 			
-			content += '<a class="btn btn-mini topBtn" href="#votingNav">Back To Top</a>';
+			content += '<a class="btn btn-small topBtn" href="#votingNav">Back To Top</a>';
 			content += '</div>'; // end .row.state1
 			content += '</div>'; // end .state
 			$('#earlyVoting').append(content);
