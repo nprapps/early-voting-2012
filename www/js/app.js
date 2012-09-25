@@ -116,18 +116,29 @@ $(document).ready(function() {
 			content += '</div>'; // end .span3
 			
 			content += '<div class="span3">';
-			content += '<h3><b class="voterReg"></b>Voter Registration</h3>';
+			content += '<h3><b class="voterReg"></b>Key Dates</h3>';
 			content += '<ul>';
-			content += '<li><strong>Deadline: ';
+			content += '<li><strong>Voter registration deadline:</strong> ';
 			if (y.registrationdeadline) {
 				content += formatDate(y.registrationdeadline);
 			} else {
 				content += 'n/a';
 			}
-			content += '</strong></li>';
 			if (y.registrationnote) {
-				content += '<li><strong>Notes:</strong> ' + y.registrationnote + '</li>';
+				content += ' (' + y.registrationnote + ')';
 			}
+			content += '</li>';
+
+			content += '<li><strong>Deadline to request an absentee ballot:</strong> ';
+			if (y.requestdeadline) {
+				content += formatDate(y.requestdeadline);
+			} else {
+				content += 'n/a';
+			}
+			content += '</li>';
+
+			content += '<li><strong>Election Day:</strong> Tuesday, Nov. 6</li>';
+
 			content += '</ul>';
 			content += '</div>'; // end .span3
 			
@@ -135,13 +146,6 @@ $(document).ready(function() {
 			content += '<h3><b class="absentee"></b>Absentee Ballots</h3>';
 			content += '<ul>';
 			content += '<li><strong>First mailed:</strong> ' + formatDate(y.absmailed) + '</li>';
-			content += '<li><strong>Deadline to request:</strong> ';
-			if (y.requestdeadline) {
-				content += formatDate(y.requestdeadline);
-			} else {
-				content += 'n/a';
-			}
-			content += '</li>';
 			content += '<li><strong>"No-excuse" ballots:</strong> ';
 			switch(y.noexcuseabsentee.toUpperCase()) {
 				case 'Y':
