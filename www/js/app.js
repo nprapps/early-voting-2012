@@ -170,7 +170,11 @@ $(document).ready(function() {
 					}
 					break;
 				case 'N':
-					content += '<li>Not available</li>';
+					if (y.eipnote) {
+						content += '<li>' + y.eipnote + '</li>';
+					} else {
+						content += '<li>Not available</li>';
+					}
 					break;
 				default:
 					content += '<li>n/a</li>';
@@ -222,6 +226,16 @@ $(document).ready(function() {
 	    		$('#dateSortBtn').removeClass('disabled');
 	    		break;
 	    }
+	    
+	    if (window.location.hash) {
+		    var hash = window.location.hash.split('?');
+	    	$.each(hash, function(x,y) {
+	    		if (y.substr(0,1) == '#') {
+				    var hashpos = $(y).offset();
+				    window.scrollTo(hashpos.left, hashpos.top);
+				}
+		    });
+		}
 	}
 	
 	$('#dateSortBtn').click(function() {
