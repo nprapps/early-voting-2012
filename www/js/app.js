@@ -165,6 +165,8 @@ $(document).ready(function() {
 				case 'Y':
 					if (y.eipopen) {
 						content += '<li>' + formatDate(y.eipopen) + ' through ' + formatDate(y.eipclose) + '</li>';
+					} else if (y.eipnote) {
+						content += '<li>' + y.eipnote + '</li>';
 					} else {
 						content += '<li>Available. Contact local elections board for details.</li>';
 					}
@@ -181,24 +183,16 @@ $(document).ready(function() {
 					break;
 			}
 			content += '</ul>';
-			content += '<h3><b class="vbm"></b>Vote By Mail</h3>';
-			content += '<ul>'
-			switch(y.votebymail.toUpperCase()) {
-				case 'Y':
-					if (y.vbmnote) {
-						content += '<li>' + y.vbmnote + '</li>';
-					} else {
-						content += '<li>Available.</li>';
-					}
-					break;
-				case 'N':
-					content += '<li>Not available</li>';
-					break;
-				default:
-					content += '<li>n/a</li>';
-					break;
+			if (y.votebymail.toUpperCase() == 'Y') {
+				content += '<h3><b class="vbm"></b>Vote By Mail</h3>';
+				content += '<ul>'
+				if (y.vbmnote) {
+					content += '<li>' + y.vbmnote + '</li>';
+				} else {
+					content += '<li>Available.</li>';
+				}
+				content += '</ul>';
 			}
-			content += '</ul>';
 			content += '</div>'; // end .span3
 			
 			content += '<a class="btn btn-small topBtn" href="#votingNav">Back To Top</a>';
