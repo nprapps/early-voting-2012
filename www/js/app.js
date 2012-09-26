@@ -86,9 +86,9 @@ $(document).ready(function() {
 			content += '<ul class="earlyVotingNote"><li>';
 			
 			if (early == y.eipopen) {
-				content += earlyNote + ' ' + absNote;
+				content += earlyNote + '<br />' + absNote;
 			} else {
-				content += absNote + ' ' + earlyNote;
+				content += absNote + '<br />' + earlyNote;
 			}
 
 			content += '</li></ul>';
