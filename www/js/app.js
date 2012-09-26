@@ -31,26 +31,67 @@ $(document).ready(function() {
 			// figure out when early voting starts
 			var content = '';
 			var early = y.absmailed; // default to absentee date
+			var earlyinperson = y.earlyinperson.toUpperCase();
+			var noexcuse = y.noexcuseabsentee.toUpperCase();
 			var eipDate = new Date(y.eipopen);
 			var absDate = new Date(y.absmailed);
+
+			var earlyNote = '';
+			var absNote = '';
+			
+			// early voting
+			if (y.statepostal.toUpperCase() == 'NJ') {
+				console.log(y.absmailed,y.eipopen,noexcuse);
+			}
+			if (y.eipopen && earlyinperson == 'Y') {
+				if (y.absmailed == y.eipopen && noexcuse == 'Y') {
+//					earlyNote += 'Early in-person and absentee voting ("no-excuse") ';
+					earlyNote += 'Early voting ';
+				} else if (y.absmailed == y.eipopen && noexcuse == 'N') {
+					earlyNote += 'Early in-person and absentee voting ';
+				} else {
+					earlyNote += 'Early in-person voting ';
+				}
+				if (today.getTime() >= eipDate.getTime() ) { // if today is after the early voting start date
+					earlyNote += 'began ';
+				} else {
+					earlyNote += 'begins ';
+				}
+				earlyNote += '<strong>' + formatDate(eipDate) + '</strong>.';
+			}
+			if (y.absmailed != y.eipopen) {
+				// absentee voting
+				absNote += 'Absentee voting '
+				if (noexcuse == 'Y') {
+					absNote += '("no-excuse") ';
+				}
+				if (today.getTime() >= absDate.getTime() ) { // if today is after the early voting start date
+					absNote += 'began ';
+				} else {
+					absNote += 'begins ';
+				}
+				absNote += '<strong>' + formatDate(absDate) + '</strong>.';
+			}
+
 			if (y.eipopen && (eipDate.getTime() < absDate.getTime())) { // check if in-person exists, is earlier
 				early = y.eipopen;
 			}
 			var earlyDate = new Date(early);
-			
+
 			content += '<div class="state" id="' + y.statepostal.toLowerCase() + '" data-title="' + y.state + '" data-date="' + earlyDate.getTime() + '">';
 			content += '<div class="row state0">';
 
 			content += '<div class="span3">';
 			content += '<h2>' + y.state + ' <span>' + y.stateabbr + '</span></h2>';
-			content += '<ul class="earlyVotingNote"><li><strong>';
-			if (today.getTime() >= earlyDate.getTime() ) { // if today is after the early voting start date
-				content += 'Early voting began ';
+			content += '<ul class="earlyVotingNote"><li>';
+			
+			if (early == y.eipopen) {
+				content += earlyNote + ' ' + absNote;
 			} else {
-				content += 'Early voting begins ';
+				content += absNote + ' ' + earlyNote;
 			}
-			content += formatDate(early);
-			content += '.</strong></li></ul>';
+
+			content += '</li></ul>';
 			content += '</div>';
 			
 			content += '<div class="span9 calWrap">';
