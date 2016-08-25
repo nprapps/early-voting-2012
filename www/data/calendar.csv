@@ -1,0 +1,52 @@
+state,state_abbr,state_postal,early_in_person,vote_by_mail,no_excuse_absentee,eip_open,eip_close,eip_note,request_deadline,vbm_mailed,vbm_note,abs_mailed,registration_deadline,registration_note,general_election,sos_phone,sos_website
+North Carolina,N.C.,NC,y,n,y,10/18/2012,11/3/2012,,10/30/2012,,,9/6/2012,11/3/2012,"Oct. 12 by mail. Citizens also can register in person and vote early during the ""one-stop"" voting period from Oct.18 - Nov. 3.",11/6/2012,(919) 733-7173,http://www.ncsbe.gov/content.aspx?id=132&s=132
+Indiana,Ind.,IN,y,n,n,10/9/2012,11/5/2012,,10/29/2012,,,9/17/2012,10/9/2012,,11/6/2012,(317) 232-6531,http://www.in.gov/sos/elections/
+Kentucky,Ky.,KY,n,n,n,,,,10/30/2012,,,9/17/2012,10/9/2012,,11/6/2012,(502) 573-7100,http://elect.ky.gov/Pages/default.aspx
+Wisconsin,Wis.,WI,y,n,y,10/22/2012,11/2/2012,,11/1/2012,,,9/20/2012,11/6/2012,Oct. 17 by mail; Nov. 6 in person,11/6/2012,(608) 266-8005,http://gab.wi.gov/elections-voting/voters
+Arkansas,Ark.,AR,y,n,y,10/22/2012,11/5/2012,,10/30/2012,,,9/21/2012,10/9/2012,,11/6/2012,(501) 682-5070,http://www.sos.arkansas.gov/elections/Pages/voterResources.aspx
+Georgia,Ga.,GA,y,n,y,10/15/2012,11/2/2012,,11/2/2012,,,9/21/2012,10/9/2012,,11/6/2012,(404) 656-2871,http://www.sos.ga.gov/elections/
+Idaho,Idaho,ID,y,n,y,9/21/2012,11/2/2012,,10/31/2012,,,9/21/2012,11/6/2012,Oct. 12 by mail; Nov. 6 in person,11/6/2012,(208) 334-2852,http://www.sos.idaho.gov/elect/eleindex.htm
+Maryland,Md.,MD,y,n,y,10/27/2012,11/1/2012,,10/30/2012,,,9/21/2012,10/16/2012,,11/6/2012,(410) 269-2840,http://www.elections.state.md.us/
+Minnesota,Minn.,MN,n,n,n,,,,11/5/2012,,,9/21/2012,11/6/2012,Oct. 16 by mail; Nov. 6 in person,11/6/2012,(651) 201-1339,http://www.sos.state.mn.us/index.aspx?page=134
+Oklahoma,Okla.,OK,y,n,y,11/2/2012,11/5/2012,,10/31/2012,,,9/21/2012,10/12/2012,,11/6/2012,(405) 521-2391,http://www.ok.gov/elections/Absentee_Voting/index.html
+South Dakota,S.D.,SD,y,n,y,9/21/2012,11/6/2012,,11/4/2012,,,9/21/2012,10/22/2012,,11/6/2012,(605) 773-3537,http://sdsos.gov/Elections/WhatAmI.aspx?pnl=absentee
+West Virginia,W.Va.,WV,y,n,n,10/24/2012,11/3/2012,,10/31/2012,,,9/21/2012,10/16/2012,,11/6/2012,(304) 558-6000,http://www.sos.wv.gov/elections/voterinformation/voting/Pages/default.aspx
+Delaware,Del.,DE,n,n,n,,,,11/2/2012,,,9/22/2012,10/13/2012,,11/6/2012,(302) 739-4277,http://elections.delaware.gov/
+Louisiana,La.,LA,y,n,n,10/23/2012,10/30/2012,,11/2/2012,,,9/22/2012,10/9/2012,,11/6/2012,(225) 922-0900,http://www.sos.la.gov/tabid/68/default.aspx
+Maine,Maine,ME,n,n,y,,,"Maine classifies all pre-Election Day voting as “absentee” and not “early voting,” but voters can submit absentee ballots in person to their municipal clerk's office through Election Day.",11/1/2012,,,9/22/2012,11/6/2012,Oct. 16 by mail; Nov. 6 in person,11/6/2012,(207) 624-7736,http://www.maine.gov/sos/cec/elec/voter_info/index.html
+Michigan,Mich.,MI,n,n,n,,,,11/3/2012,,,9/22/2012,10/9/2012,,11/6/2012,(888) 767-6424,"http://www.michigan.gov/sos/0,4670,7-127-1633_8716_8728---,00.html"
+Mississippi,Miss.,MS,n,n,n,,,,11/5/2012,,,9/22/2012,10/6/2012,,11/6/2012,(601) 576-2550,http://www.sos.ms.gov/elections_voter_info_center.aspx
+New Hampshire,N.H.,NH,n,n,n,,,,11/5/2012,,,9/22/2012,11/6/2012,Oct. 27 by mail; Nov. 6 in person,11/6/2012,(603) 271-3242,http://sos.nh.gov/VoteNH.aspx
+New Jersey,N.J.,NJ,n,y,y,,,,10/30/2012,9/22/2012,,9/22/2012,10/16/2012,,11/6/2012,(609) 292-3760,http://nj.gov/state/elections/voting-information.html
+South Carolina,S.C.,SC,n,n,n,,,,11/2/2012,,,9/22/2012,10/6/2012,,11/6/2012,(803) 734-9060,http://www.scvotes.org/2009/10/15/absentee_voting
+Tennessee,Tenn.,TN,y,n,n,10/17/2012,11/1/2012,,10/30/2012,,,9/22/2012,10/6/2012,,11/6/2012,(615) 741-7956,http://www.tn.gov/sos/election/bymail.htm
+Texas,Texas,TX,y,n,n,10/22/2012,11/2/2012,,10/30/2012,,,9/22/2012,10/9/2012,,11/6/2012,(512) 463-5650,http://www.votetexas.gov/
+Vermont,Vt.,VT,y,n,y,9/22/2012,11/5/2012,,11/5/2012,,,9/22/2012,10/31/2012,,11/6/2012,(802) 828-2304,http://vermont-elections.org/elections1/absentee.html
+Virginia,Va.,VA,y,n,n,9/22/2012,11/3/2012,,10/30/2012,,,9/22/2012,10/15/2012,,11/6/2012,(804) 864-8901,http://www.sbe.virginia.gov/AbsenteeVoting.html
+Missouri,Mo.,MO,n,n,n,,,,10/31/2012,,,9/25/2012,10/10/2012,,11/6/2012,(573) 751-2301,http://www.sos.mo.gov/elections/s_default.asp?id=voters
+Alabama,Ala.,AL,n,n,n,,,,11/1/2012,,,9/27/2012,10/26/2012,,11/6/2012,(334) 242-7210,http://www.sos.state.al.us/elections/default.aspx
+Illinois,Ill.,IL,y,n,y,10/22/2012,11/3/2012,,11/1/2012,,,9/27/2012,10/9/2012,,11/6/2012,(312) 814-6440,http://www.elections.il.gov/
+Iowa,Iowa,IA,y,n,y,9/27/2012,11/5/2012,,11/2/2012,,,9/27/2012,10/27/2012,Oct. 22 by mail; Oct. 27 in person,11/6/2012,(515) 281-0145,http://sos.iowa.gov/
+North Dakota,N.D.,ND,y,n,y,10/22/2012,11/5/2012,,11/5/2012,,,9/27/2012,,North Dakota has no voter registration,11/6/2012,(701) 328-4146,http://www.nd.gov/sos/electvote/
+Wyoming,Wyo.,WY,y,n,y,9/27/2012,11/5/2012,,,,,9/27/2012,11/6/2012,Oct 22 if done remotely,11/6/2012,(307) 777-5860,http://soswy.state.wy.us/Elections/Elections.aspx
+Nebraska,Neb.,NE,y,n,y,10/1/2012,11/5/2012,,10/31/2012,,,10/1/2012,10/26/2012,Oct. 19 by mail; Oct. 26 in person,11/6/2012,(402) 471-2555,http://www.sos.ne.gov/elec/genvoterinfo.html
+"Washington, D.C.",D.C.,DC,y,n,n,10/22/2012,11/3/2012,,10/30/2012,,,10/1/2012,11/6/2012,Oct. 9 by mail; Nov. 6 in person,11/6/2012,(202) 727-5324,http://dcboee.us/
+Florida,Fla.,FL,y,n,y,10/27/2012,11/3/2012,,10/31/2012,,,10/2/2012,10/9/2012,,11/6/2012,(561) 656-6200,http://election.dos.state.fl.us/
+New York,N.Y.,NY,n,n,n,,,,10/30/2012,,,10/2/2012,10/12/2012,,11/6/2012,(518) 473-5086,http://www.elections.ny.gov/
+Ohio,Ohio,OH,y,n,y,10/2/2012,11/5/2012,,11/3/2012,,,10/2/2012,10/9/2012,,11/6/2012,(614) 466-2655,http://www.sos.state.oh.us/sos/elections/Voters.aspx
+Connecticut,Conn.,CT,n,n,n,,,,11/5/2012,,,10/5/2012,10/30/2012,Oct. 23  by mail; Oct. 30 in person,11/6/2012,(860) 509-6100,http://www.ct.gov/sots/cwp/view.asp?a=3&q=415810
+California,Calif.,CA,y,n,y,10/7/2012,11/5/2012,,10/30/2012,,,10/8/2012,10/22/2012,,11/6/2012,,http://www.sos.ca.gov/elections/
+Montana,Mont.,MT,n,n,y,,,,11/5/2012,,,10/9/2012,11/6/2012,Oct. 9 by mail; Nov. 6 in person,11/6/2012,(406) 444-5376,http://sos.mt.gov/Elections/index.asp
+New Mexico,N.M.,NM,y,n,y,10/20/2012,11/3/2012,,11/2/2012,,,10/9/2012,10/9/2012,,11/6/2012,(505) 827-3600,http://www.sos.state.nm.us/Voter_Information/
+Rhode Island,R.I.,RI,n,n,n,,,,10/16/2012,,,10/9/2012,11/6/2012,Oct. 6 by mail; Nov. 6 in person,11/6/2012,(401) 222-2345,http://www.elections.state.ri.us/voting/mailballot.php
+Utah,Utah,UT,y,n,y,10/23/2012,11/2/2012,,11/2/2012,,,10/9/2012,10/22/2012,Oct. 9 by mail; Oct. 22 in person,11/6/2012,(435) 587-3223,http://elections.utah.gov/
+Arizona,Ariz.,AZ,y,n,y,10/11/2012,11/2/2012,,10/26/2012,,,10/11/2012,10/9/2012,,11/6/2012,(602) 542-4285,http://www.azsos.gov/election/
+Alaska,Alaska,AK,y,n,y,10/22/2012,11/5/2012,,10/27/2012,,,10/12/2012,10/6/2012,,11/6/2012,(907) 375-6400,http://www.elections.alaska.gov/vi_ea_ev_ip.php
+Colorado,Colo.,CO,y,n,y,10/22/2012,11/2/2012,,10/30/2012,,,10/15/2012,10/9/2012,,11/6/2012,(303) 894-2200 ex. 6307,http://www.sos.state.co.us/pubs/elections/
+Massachusetts,Mass.,MA,n,n,n,,,,11/5/2012,,,10/16/2012,10/17/2012,,11/6/2012,(617) 727-2828,http://www.sec.state.ma.us/ele/
+Hawaii,Hawaii,HI,y,n,y,10/23/2012,11/3/2012,,10/30/2012,,,10/17/2012,10/9/2012,,11/6/2012,(808) 453-8683,http://hawaii.gov/elections
+Kansas,Kan.,KA,y,n,y,10/17/2012,11/5/2012,,11/2/2012,,,10/17/2012,10/16/2012,,11/6/2012,(785) 296-4561,http://www.kssos.org/elections/elections_registration_voting.html
+Nevada,Nev.,NV,y,n,y,10/20/2012,11/2/2012,,10/30/2012,,,10/17/2012,10/16/2012,,11/6/2012,(775) 482-8127,http://nvsos.gov/index.aspx?page=71
+Oregon,Ore.,OR,n,y,y,,,,,10/19/2012,Ballots are mailed to residents between 14 and 18 days before the election.  They must be received in a county election office or designated drop site by 8 p.m. on Election Day.,10/19/2012,10/16/2012,,11/6/2012,(503) 986-1518,http://oregonvotes.org/
+Washington,Wash.,WA,n,y,y,,,,,10/19/2012,"Ballots are mailed at least 18 days before the election. To vote, a ballot must either be postmarked no later than Election Day, or submitted in person by 8 p.m. on Election Day.",10/19/2012,10/29/2012,Oct. 6 by mail; Oct. 29 in person,11/6/2012,(360) 902-4180,http://www.sos.wa.gov/elections/
+Pennsylvania,Pa.,PA,n,n,n,,,,10/30/2012,,,10/23/2012,10/9/2012,,11/6/2012,(717) 787-6458,http://www.votespa.com/portal/server.pt?open=514&objID=1174088&parentname=ObjMgr&parentid=7&mode=2

@@ -13,7 +13,7 @@ a.btn.btn-inverse { color: #fff; }
 .intro p.date { color: #999; font-style: italic; }
 .intro ul { list-style: none; margin: 0; padding: 0; }
 .intro ul li { margin: 0 0 .5em 0; padding: 0; line-height: 1.2em; }
-.intro ul li a { 
+.intro ul li a {
 	padding: 0 0 0 7px;
 	font-size: .9em;
 	background: url(http://media.npr.org/chrome/news/bullet_blk.gif) no-repeat left .1em;
@@ -113,7 +113,7 @@ a.btn.btn-inverse { color: #fff; }
 	background-color: #11605E;
 	top: 1.2em;
 }
-#earlyVoting .calendar .earlyInPerson {
+#earlyVoting .calendar .early_in_person {
 	background-color: #51A09E;
 	top: 2.3em;
 }
@@ -133,7 +133,7 @@ a.btn.btn-inverse { color: #fff; }
 }
 #earlyVoting b.voterReg { background-color: #E38D2C; }
 #earlyVoting b.absentee { background-color: #11605E; }
-#earlyVoting b.earlyInPerson { background-color: #51A09E; }
+#earlyVoting b.early_in_person { background-color: #51A09E; }
 #earlyVoting b.vbm { background-color: #C5DFDF; }
 #earlyVoting .state1 .span3 a { color: #36C; }
 
@@ -171,7 +171,7 @@ a.btn.btn-inverse { color: #fff; }
 	#earlyVoting .calendar .divider.week { display: block; background-color: #fff; }
 	#earlyVoting .calendar .dividerLabel b { display: none; }
 	#earlyVoting .calendar .dividerLabel i { display: block; }
-	
+
 	#votingNav .btn-group { display: block; margin: 0; }
 	#votingNav #dateSortBtn, #votingNav #stateSortBtn { width: 50%; }
 	#votingNav #stateListSelect { display: block; margin: 0; }
