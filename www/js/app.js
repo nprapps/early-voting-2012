@@ -16,8 +16,7 @@ $(document).ready(function() {
 
 	$('#votingNav').hide();
 	function init() {
-		d3.csv('/data/calendar.csv', function(data) {
-			console.log(data[0]);
+		d3.csv('data/calendar.csv', function(data) {
 			parseData(data);
 		});
 	}
