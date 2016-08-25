@@ -9,8 +9,8 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery.tinysort.min.js"></script>
+    <script type="text/javascript" src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/underscore-min.js"></script>
-    <script type="text/javascript" src="js/tabletop.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -41,28 +41,28 @@
             DFP.target = 'http://ad.doubleclick.net/adj/n6735.NPR/news_election_2012;agg=139482413;storyid=139482413';
         // -->
         </script>
-		           
+
         <!-- DFP AD MANAGER -->
         <script type="text/javascript">
         <!--
              DFP[0] = {"utype":null,"sz":"300x250","position":"right_main"};
              DFP[1] = {"utype":null,"sz":"88x31","position":"search_box"};
-		
-            
+
+
             DFP.renderLocation = function(location) {
                 var params = DFP[location];
-                var toRender = '<scr' + 'ipt src="' 
-                                + DFP.target 
+                var toRender = '<scr' + 'ipt src="'
+                                + DFP.target
                                 + ';sz=' + params.sz
                                 + ';tile=' + ++DFP.tile
                                 + ';sc='
-                                + ';ord=' + DFP.ord 
+                                + ';ord=' + DFP.ord
                                 + ';" type="text/javascript" language="javascript"></scr' + 'ipt>';
                 document.write(toRender);
             }
         // -->
 	</script>
-    
+
 	<meta property="og:title" content="Election 2012 Early And Absentee Voting : NPR" />
 	<meta property="og:url" content="http://apps.npr.org/early-voting-2012/" />
 	<meta property="og:type" content="article" />
@@ -73,7 +73,7 @@
 
 </head>
 <body>
-    
+
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -125,18 +125,18 @@
 						NPR.messaging.warning('Problem fetching/rendering ad server code.','DFP.renderlocation',NPR.messaging.constants.SPONSORSHIP_ERROR);
 					}
 				// -->
-				</script>                  
+				</script>
 				<!-- END UNDERWRITING -->
 				<p class="left">NPR thanks our sponsors</p>
 				<p class="right"><a href="http://www.npr.org/about/place/corpsupport/">Become an NPR Sponsor </a></p>
 				</div></div>
-				<!-- END 300X250 AD --> 
+				<!-- END 300X250 AD -->
             </div>
         </div>
-        
+
         <div class="row">
         	<div class="span12">
-        	
+
         		<div id="votingNav" class="btn-toolbar">
 	        		<div class="btn-group">
 						<button class="btn btn-small btn-inverse" id="dateSortBtn">Sort By Date</button>
@@ -170,7 +170,7 @@
 
         	</div>
         </div>
-        
+
         <div id="footer" class="row">
             <div class="span12">
             	<ul class="bottomlist">
@@ -186,9 +186,9 @@
             	</ul>
             </div>
         </div>
-        
+
     </div>
-    
+
     <script type="text/javascript">
         var _sf_async_config={};
         /** CONFIGURATION START **/
