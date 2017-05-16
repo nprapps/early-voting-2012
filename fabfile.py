@@ -51,7 +51,7 @@ def _deploy_to_s3():
     """
     Deploy the gzipped stuff to
     """
-    local(('s3cmd -P --add-header=Content-encoding:gzip --guess-mime-type --recursive sync gzip/ s3://%(s3_bucket)s/%(project_name)s/') % env)
+    local(('s3cmd -P --add-header=Cache-Control:max-age=5 --add-header=Content-encoding:gzip --guess-mime-type --recursive sync gzip/ s3://%(s3_bucket)s/%(project_name)s/') % env)
 
 def _gzip_www():
     """
